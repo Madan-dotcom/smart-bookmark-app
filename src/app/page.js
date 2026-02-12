@@ -4,6 +4,10 @@ export default function Home() {
          <main className='flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start'>
             <div>
                <h1>Smart Bookmark App</h1>
+               <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, blanditiis dicta magni voluptates possimus non modi,
+                  necessitatibus nesciunt iste veniam unde dignissimos vero! Vero laborum natus officiis, illum rerum facilis!
+               </p>
             </div>
          </main>
       </div>
