@@ -1,15 +1,20 @@
+"use client";
+
+import { supabase } from "./lib/supabaseClient";
+
 export default function Home() {
+   const loginWithGoogle = async () => {
+      await supabase.auth.signInWithOAuth({
+         provider: "google",
+      });
+   };
+
    return (
-      <div className='flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black'>
-         <main className='flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start'>
-            <div>
-               <h1>Smart Bookmark App</h1>
-               <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, blanditiis dicta magni voluptates possimus non modi,
-                  necessitatibus nesciunt iste veniam unde dignissimos vero! Vero laborum natus officiis, illum rerum facilis!
-               </p>
-            </div>
-         </main>
-      </div>
+      <main className='min-h-screen flex flex-col items-center justify-center max-w-lg mx-auto gap-6'>
+         <h1 className='text-2xl font-bold text-center'>Welcome to Smart Bookmark App</h1>
+         <button onClick={loginWithGoogle} className='bg-black text-white px-6 py-3 rounded'>
+            Login with Google
+         </button>
+      </main>
    );
 }
