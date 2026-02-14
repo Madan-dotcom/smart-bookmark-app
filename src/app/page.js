@@ -1,13 +1,14 @@
 "use client";
 
 import { supabase } from "./lib/supabaseClient";
+import { FcGoogle } from "react-icons/fc";
 
 export default function Home() {
    const loginWithGoogle = async () => {
       await supabase.auth.signInWithOAuth({
          provider: "google",
          options: {
-            redirectTo: "http://localhost:3000/dashboard",
+            redirectTo: `${window.location.origin}/dashboard`,
             queryParams: {
                prompt: "consent select_account",
             },
@@ -16,12 +17,16 @@ export default function Home() {
    };
 
    return (
-      <main className='min-h-screen flex flex-col items-center justify-center max-w-lg mx-auto gap-6'>
-         <h1 className='text-2xl font-bold text-center'>Welcome to Smart Bookmark App</h1>
-
-         <button onClick={loginWithGoogle} className='bg-black text-white px-6 py-3 rounded'>
-            Login with Google
-         </button>
+      <main className='bg-neutral-200 min-h-screen flex items-center justify-center'>
+         <div className='bg-white max-w-xl w-full flex justify-center items-center p-10 rounded shadow'>
+            <div className='flex flex-col justify-center items-center gap-8'>
+               <h1 className='text-black text-2xl font-bold'>Smart Bookmark App</h1>
+               <button onClick={loginWithGoogle} className='border px-8 py-3 rounded cursor-pointer flex items-center gap-3 shadow-sm'>
+                  <FcGoogle size={22} />
+                  <span className='text-black'>Sign In with Google</span>
+               </button>
+            </div>
+         </div>
       </main>
    );
 }
