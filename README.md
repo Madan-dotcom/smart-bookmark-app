@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Smart Bookmark App
 
-## Getting Started
+Smart Bookmark App is a simple bookmark manager where users log in using Google and manage their personal bookmarks. Each user can only see and manage their own bookmarks, and updates appear in real-time.
 
-First, run the development server:
+## Live Application
+
+https://smart-bookmark-app-nu-two.vercel.app
+
+## GitHub Repository
+
+https://github.com/Madan-dotcom/smart-bookmark-app
+
+---
+
+## Features
+
+- Google OAuth login (no email/password)
+- Add bookmarks using title and URL
+- Bookmarks are private per user
+- Delete bookmarks with confirmation popup
+- Real-time updates across multiple tabs
+- Logout functionality
+- Responsive UI for desktop, tablet, and mobile
+- Deployed on Vercel with live URL
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- Supabase (Authentication, Database, Realtime)
+- Tailwind CSS
+- Google OAuth
+- Vercel Deployment
+
+---
+
+## Database Structure
+
+Table: **bookmarks**
+
+Fields:
+
+- id
+- title
+- url
+- user_id
+- created_at
+
+Row Level Security policies ensure each user accesses only their own bookmarks.
+
+---
+
+## Setup Instructions
+
+### 1. Clone repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Madan-dotcom/smart-bookmark-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 1. Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
 
-## Learn More
+2. Create .env.local
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
 
-To learn more about Next.js, take a look at the following resources:
+3.Run locally
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Challenges Faced & Solutions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+OAuth redirect issue after deployment was fixed by updating Supabase redirect URLs.
 
-## Deploy on Vercel
+Real-time sync issues were solved by enabling Supabase realtime subscriptions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+SQL database setup and Row Level Security policies were challenging, and it was solved by correctly configuring Supabase policies to ensure each user accesses only their own bookmarks.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Future Improvements
+
+Bookmark editing feature
+
+Bookmark search and filtering
+
+Bookmark categories
+
+User profile customization
+
+Author
+
+Madan H
+```
